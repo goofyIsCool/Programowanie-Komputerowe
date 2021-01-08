@@ -65,9 +65,9 @@ if __name__ == '__main__':
     min = 999999999
     max = 0
     for liczba in liczby:
-        # print(palindromSum(liczba))
-        # if czynniki(liczba):
-        #     counter1 += 1
+        print(palindromSum(liczba))
+        if czynniki(liczba):
+            counter1 += 1
         if palindromSum(liczba):
             counter2 += 1
 
