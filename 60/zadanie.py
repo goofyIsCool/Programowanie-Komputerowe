@@ -1,6 +1,3 @@
-from math import sqrt
-
-
 def dzielniki(liczba):
     tmp = [1, liczba]
     for i in range(2, liczba):
@@ -14,10 +11,20 @@ def dzielniki(liczba):
     return sorted(tmp)
 
 
+def nwd(a, b):
+    if a < b:
+        return nwd(b, a)
+    if b == 0:
+        return a
+
+    return nwd(b, a % b)
+
+
 if __name__ == '__main__':
     counter = 0
     last = 0
     secondLast = 0
+    numbers = []
     print("Zadanie 2.")
     with open("liczby.txt", "r") as f:
         for line in f:
@@ -31,6 +38,20 @@ if __name__ == '__main__':
             if tmp is not False:
                 print(liczba, tmp)
 
+            numbers.append(liczba)
+
     print("Zadanie 1.")
     print("W pliku liczby.txt znajduje sie {} liczb mniejszych od 1000".format(counter))
     print("Ostatnia: {} \nPrzedostatnia: {}".format(last, secondLast))
+
+    najwiekszaPierwsza = 0
+    for i in range(len(numbers)):
+        ok = True
+        for j in range(len(numbers)):
+            if i != j and nwd(numbers[i], numbers[j]) > 1:
+                ok = False
+
+        if ok and numbers[i] > najwiekszaPierwsza:
+            najwiekszaPierwsza = numbers[i]
+
+    print("Najwieksza wzglednie pierwsza: {}".format(najwiekszaPierwsza))
