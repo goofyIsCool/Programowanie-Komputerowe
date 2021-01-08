@@ -40,6 +40,18 @@ def palindromSum(liczba):
         return False
 
 
+def moc_liczby(liczba, moc):
+    tmp = str(liczba)
+    iloczyn = 1
+    for cyfra in tmp:
+        iloczyn *= int(cyfra)
+
+    if iloczyn >= 10:
+        return moc_liczby(iloczyn, moc + 1)
+    else:
+        return moc
+
+
 if __name__ == '__main__':
 
     liczby = []
@@ -49,6 +61,9 @@ if __name__ == '__main__':
 
     counter1 = 0
     counter2 = 0
+    counters = [0 for i in range(8)]
+    min = 999999999
+    max = 0
     for liczba in liczby:
         # print(palindromSum(liczba))
         # if czynniki(liczba):
@@ -56,7 +71,21 @@ if __name__ == '__main__':
         if palindromSum(liczba):
             counter2 += 1
 
-    # print("Zadanie1. {}".format(counter))
-    # 114
+        tmp = moc_liczby(liczba, 1)
+        counters[tmp-1] += 1
+
+        if tmp == 1:
+            if liczba > max:
+                max = liczba
+            elif liczba < min:
+                min = liczba
+
+            # print("Zadanie1. {}".format(counter))
+            # 114
     print("Zadnaie2. {}".format(counter2))
     # 181
+    for _ in range(len(counters)):
+        print("Moc {}: {}".format(_+1, counters[_]))
+
+    print("Minimalna liczba o mocy jeden jest rowna: {}".format(min))
+    print("Maksymalna liczba o mocy jeden jest rowna: {}".format(max))
