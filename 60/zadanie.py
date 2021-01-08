@@ -34,13 +34,3 @@ if __name__ == '__main__':
     print("Zadanie 1.")
     print("W pliku liczby.txt znajduje sie {} liczb mniejszych od 1000".format(counter))
     print("Ostatnia: {} \nPrzedostatnia: {}".format(last, secondLast))
-
-const int rozmiar = 200
-
-
-def nwd(x, y):
-    if x < y:
-        return nwd(y, x)
-    if y == 0:
-        return x
-    return nwd(y, x % y)
