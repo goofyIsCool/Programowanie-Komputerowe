@@ -1,0 +1,7 @@
+Zadanie 1.
+Min temperature in S1: -1011
+Min temperature in S2: -1001100
+Min temperature in S3: -1001011
+Zadanie 2. 182
+Zadanie 3. 42
+Zadainie 4: 25

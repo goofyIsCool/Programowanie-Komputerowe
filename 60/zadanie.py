@@ -25,7 +25,7 @@ if __name__ == '__main__':
     last = 0
     secondLast = 0
     numbers = []
-    print("Zadanie 2.")
+    box = []
     with open("liczby.txt", "r") as f:
         for line in f:
             liczba = int(line)
@@ -36,13 +36,9 @@ if __name__ == '__main__':
 
             tmp = dzielniki(liczba)
             if tmp is not False:
-                print(liczba, tmp)
+                box.append([liczba, tmp])
 
             numbers.append(liczba)
-
-    print("Zadanie 1.")
-    print("W pliku liczby.txt znajduje sie {} liczb mniejszych od 1000".format(counter))
-    print("Ostatnia: {} \nPrzedostatnia: {}".format(last, secondLast))
 
     najwiekszaPierwsza = 0
     for i in range(len(numbers)):
@@ -54,4 +50,12 @@ if __name__ == '__main__':
         if ok and numbers[i] > najwiekszaPierwsza:
             najwiekszaPierwsza = numbers[i]
 
-    print("Najwieksza wzglednie pierwsza: {}".format(najwiekszaPierwsza))
+    with open("wynik.txt", "w") as f:
+        f.write("Zadanie 1.\n")
+        f.write("W pliku liczby.txt znajduje sie {} liczb mniejszych od 1000\n".format(counter))
+        f.write("Ostatnia: {} \nPrzedostatnia: {}\n".format(last, secondLast))
+        f.write("Zadanie 2.\n")
+        for _ in box:
+            f.write(str(_[0]) + " " + str(_[1]) + "\n")
+        f.write("Zadanie 3.\n")
+        f.write("Najwieksza wzglednie pierwsza: {}".format(najwiekszaPierwsza))

@@ -12,7 +12,7 @@ def zadanie4(allTempS1):
     return skokMax
 
 
-def main():
+if __name__ == "__main__":
     day1 = []
     day2 = []
     day3 = []
@@ -22,8 +22,8 @@ def main():
     temp3 = {}
 
     allTempS1 = []
+    box = []
     setOfDays = set()
-    print("Zadainie 1:")
     for _ in range(1, 4):
         with open("dane_systemy{}.txt".format(_), "r") as f:
 
@@ -85,23 +85,22 @@ def main():
 
             min_temp = bin(min_temp)
             if min_temp[0] == '-':
-                print("Min temperature in S{}: {}".format(_, min_temp[0]+min_temp[3:]))
+                a = "Min temperature in S{}: {}".format(_, min_temp[0]+min_temp[3:])
+                box.append(a)
             else:
-                print("Min temperature in S{}: {}".format(_, min_temp[3:]))
+                a = "Min temperature in S{}: {}".format(_, min_temp[3:])
+                box.append(a)
 
-    print("Zadainie 2:")
     counter = 0
     for i in range(len(day1)):
         if day1[i] in day2 and day1[i] in day3:
             counter += 1
-    print(counter)
 
-    # print(setOfDays)
-    print("Zadainie 3:")
-    print(len(setOfDays))
-
-    print("Zadainie 4:")
-    print(zadanie4(allTempS1))
-
-
-main()
+    with open("wynik.txt", "w") as f:
+        f.write("Zadanie 1.\n")
+        for _ in range(len(box)):
+            f.write(box[_])
+            f.write("\n")
+        f.write("Zadanie 2. {}\n".format(counter))
+        f.write("Zadanie 3. {}\n".format(len(setOfDays)))
+        f.write("Zadainie 4: {}".format(zadanie4(allTempS1)))

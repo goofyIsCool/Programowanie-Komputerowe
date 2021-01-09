@@ -80,12 +80,11 @@ if __name__ == '__main__':
             elif liczba < min:
                 min = liczba
 
-            # print("Zadanie1. {}".format(counter))
-            # 114
-    print("Zadnaie2. {}".format(counter2))
-    # 181
-    for _ in range(len(counters)):
-        print("Moc {}: {}".format(_+1, counters[_]))
-
-    print("Minimalna liczba o mocy jeden jest rowna: {}".format(min))
-    print("Maksymalna liczba o mocy jeden jest rowna: {}".format(max))
+    with open("wynik.txt", "w") as f:
+        f.write("Zadanie 1. {}\n".format(counter1))
+        f.write("Zadnaie 2. {}\n".format(counter2))
+        f.write("Zadanie 3.\n")
+        for _ in range(len(counters)):
+            f.write("Moc {}: {}\n".format(_+1, counters[_]))
+        f.write("Minimalna liczba o mocy jeden jest rowna: {}\n".format(min))
+        f.write("Maksymalna liczba o mocy jeden jest rowna: {}".format(max))
