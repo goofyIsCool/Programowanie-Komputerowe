@@ -1,0 +1,4 @@
+Zadanie 1. min:1002 max:777044
+Zadanie 2. pierwszy element:639 dlugosc:6
+Zadanie 3. a)160 b)517
+Zadanie 4. base10:411 base8:625
